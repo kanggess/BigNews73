@@ -1,0 +1,53 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  background:url(../images/login_bg.jpg)no-repeat;
+  background-size:cover;
+}
+.logo{
+  width:1200px;
+  margin:20px auto 0;
+}
+.logo img{
+  width:250px;
+}
+
+/* <!-- 登录的布局 --> */
+.login,.register{
+  width: 360px;
+  height:300px;
+  background-color:#fff;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius: 10px;
+}
+.title{
+  padding:18px 0;
+  text-align:center;
+}
+/* 登录中的表单样式 */
+.myForm{
+  padding:0 30px;
+}
+.myForm a{
+  float:right;
+}
+/* 调用字体图标的样式 */
+.myForm .layui-form-item{
+  position: relative;
+}
+.myForm .layui-form-item i{
+  position: absolute;
+  top:10px;
+  left:10px;
+} 
+.myForm .layui-form-item input{
+  padding-left:30px;
+}
+.register{
+  display:none;
+}
