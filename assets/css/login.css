@@ -19,8 +19,9 @@
   /* 中间布局的样式 */
   .login,
   .register {
-    width: 400px;
-    height: 310px;
+    width: 360px;
+    height: 320px;
+    border-radius: 10px;
     background-color: #fff;
     position: absolute;
     top: 50%;

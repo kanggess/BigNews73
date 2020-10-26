@@ -30,19 +30,19 @@ $(function () {
       // console.log(item);
       // 3.1 获取第一次输入的密码
       var passValue = $('.myForm .pass').val()
-      // console.log(pass);
-      // 3.2 进行比较 
+      console.log(passValue);
+      // // 3.2 进行比较 
       if (value !== passValue) {
-        // 3.3 清空两个密码框
+        //   // 3.3 清空两个密码框
         $('.register .myForm .pass,.register .myForm .repass').val('')
-        // 3.4 提示信息
+        //   // 3.4 提示信息
         return '两次输入的密码不一致'
       }
 
     }
 
     //我们既支持上述函数式的方式，也支持下述数组的形式
-    //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
+    //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]ub
     , pass: [  // \d数字
       /^[\d]{6,12}$/
       , '密码必须6到12位数字，且不能出现空格'
@@ -63,14 +63,19 @@ $(function () {
     // 4.3 发送ajax 里面有数据
     $.ajax({
       type: 'post',
-      url: 'http://ajax.frontend.itheima.net/api/reguser',
+    //  url: 'http://ajax.frontend.itheima.net/api/reguser',
+      url: '/api/reguser',
+      //serialize() 方法通过序列化表单值，创建 URL 编码文本字符串
       data: $(this).serialize(),
+      // data:$("form").serialize(),
       success: function (res) {
-        // console.log(res);
-        // 4.4 成功时要提示 失败时也要提示
+        console.log(res);
+        //     // 4.4 成功时要提示 失败时也要提示
         var layer = layui.layer;
         layer.msg(res.message);
-        // 4.5 如果注册成功 则跳转登陆界面
+        //     // 4.5 如果注册成功 则跳转登陆界面
+        //     message: "用户名被占用，请更换其他用户名！"
+        // status: 1
         if (res.status == 0) {
           $('.login').show().next().hide()
         }
@@ -79,20 +84,21 @@ $(function () {
   })
 
 
-  // 5. 实现登陆
-  // 5.1 给form标签注册submit事件 
+  // // 5. 实现登陆
+  // // 5.1 给form标签注册submit事件 
   $('.login .myForm').on('submit', function (e) {
-    // 5.2 阻止form标签的默认提交行为
+    //   // 5.2 阻止form标签的默认提交行为
     e.preventDefault()
-    // 5.3 发送ajax请求 有数据
+    //   // 5.3 发送ajax请求 有数据
     $.ajax({
       type: 'post',
-      url: 'http://ajax.frontend.itheima.net/api/login',
+   //   url: 'http://ajax.frontend.itheima.net/api/login',
+      url: '/api/login',
       data: $(this).serialize(),
       success: function (res) {
-        // 5.4 要进行提示
+        //       // 5.4 要进行提示
         layer.msg(res.message)
-        // 5.5 如果成功了要跳转到主页面
+        //       // 5.5 如果成功了要跳转到主页面
         if (res.status == 0) {
           location.href = './index.html'
         }
