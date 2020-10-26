@@ -7,7 +7,6 @@ $(function () {
   $('.register a').on('click', function () {
     $('.register').hide().prev().show()
   })
-
   // 3. 实现校验规则
   // jquery文件向外暴露了一个对象 $或 jquery
   // layui.all.js文件向外暴露了一个对象layui
@@ -38,10 +37,8 @@ $(function () {
         // 3.4 提示信息
         return '两次输入的密码不一致'
       }
-
     }
-
-    //我们既支持上述函数式的方式，也支持下述数组的形式
+//我们既支持上述函数式的方式，也支持下述数组的形式
     //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
     , pass: [  // \d数字
       /^[\d]{6,12}$/
@@ -49,61 +46,46 @@ $(function () {
     ]
   })
 
-
-  // // 阻止form标签的默认提交行为
-  // // $('.myForm').on('submit',function(e){
-  // //   e.preventDefault()
-  // // })
-
-  // // 4. 实现真正的注册功能
-  // // 4.1 给form标签注册submit事件
-  // $('.register .myForm').on('submit', function (e) {
-  //   // 4.2 阻止form标签默认请求行为
-  //   e.preventDefault()
-  //   // 4.3 发送ajax 里面有数据
-  //   $.ajax({
-  //     type: 'post',
-  //     url: 'http://ajax.frontend.itheima.net/api/reguser',
-  //     data: $(this).serialize(),
-  //     success: function (res) {
-  //       // console.log(res);
-  //       // 4.4 成功时要提示 失败时也要提示
-  //       var layer = layui.layer
-  //       layer.msg(res.message)
-  //       // 4.5 如果注册成功 则跳转登陆界面
-  //       if (res.status == 0) {
-  //         $('.login').show().next().hide()
-  //       }
-  //     }
-  //   })
-  // })
-
-
-  // // 5. 实现登陆
-  // // 5.1 给form标签注册submit事件 
-  // $('.login .myForm').on('submit', function (e) {
-  //   // 5.2 阻止form标签的默认提交行为
-  //   e.preventDefault()
-  //   // 5.3 发送ajax请求 有数据
-  //   $.ajax({
-  //     type: 'post',
-  //     url: 'http://ajax.frontend.itheima.net/api/login',
-  //     data: $(this).serialize(),
-  //     success: function (res) {
-  //       // 5.4 要进行提示
-  //       layer.msg(res.message)
-  //       // 5.5 如果成功了要跳转到主页面
-  //       if (res.status == 0) {
-  //         location.href = './index.html'
-  //       }
-  //     }
-  //   })
-  // })
-
-
-
-
-
-
-
+//3.实现注册功能
+//3.1给form表单注册submit事件
+$(".register .myForm").on("submit",function(e){
+  //3.2阻止默认行为
+  e.preventDefault()
+  //3.3发送ajax请求
+  var root="http://ajax.frontend.itheima.net";
+  $.ajax({
+    type:"post",
+    url:root+"/api/reguser",
+    data:$(this).serialize(),
+    success:function(res){
+      //2.4请求成功的时候要显示登录表单
+      var layer =layui.layer;
+      layer.msg(res.message);
+      if(res.status==0){      
+        $(".login").show().next().hide();  
+      }
+    }
+  })
+})
+//5.实现登录
+//5.1给form标签注册submit事件
+var root="http://ajax.frontend.itheima.net";
+$(".login .myForm").on("submit",function(e){
+  //5.2阻止form 标签的默认提交行为
+e.preventDefault();
+//5.3发送ajax请求有数据
+$.ajax({
+  type:'post',
+  url:root+"/api/login",
+  data:$(this).serialize(),
+  success:function(res){
+    //5.4要进行提示
+    layer.msg(res.message)
+    //5.5如果成功了要跳转主页面
+    if(res.status==0){
+      location.href='./log.html'
+    }
+  }
+})
+})
 })
