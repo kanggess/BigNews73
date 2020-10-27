@@ -100,6 +100,9 @@ $(function () {
         layer.msg(res.message)
         //       // 5.5 如果成功了要跳转到主页面
         if (res.status == 0) {
+          //5.6将服务器发回来的token存储起来
+          window.localStorage.setItem('token',res.token);
+          //5.7跳转到主页面
           location.href = './index.html'
         }
       }
