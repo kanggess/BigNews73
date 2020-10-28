@@ -87,6 +87,7 @@ $(function () {
   // // 5. 实现登陆
   // // 5.1 给form标签注册submit事件 
   $('.login .myForm').on('submit', function (e) {
+  
     //   // 5.2 阻止form标签的默认提交行为
     e.preventDefault()
     //   // 5.3 发送ajax请求 有数据

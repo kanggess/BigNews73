@@ -14,4 +14,16 @@ $.ajaxPrefilter(function(options){
         }
          
      }
+   
+      // 开启防翻墙
+  options.complete = function(res){
+    // console.log(res);
+    // 根据响应回来的状态码和状态描述进行判断 
+    if(res.responseJSON.status == 1 &&　res.responseJSON.message == '身份认证失败！'){
+      // 说明没有登陆或是token已经失效 请重新登陆 
+      // 跳转到登陆页面
+      location.href = './login.html'
+    }
+  }
+
 })
