@@ -53,3 +53,8 @@ padding-left:20px;
    .userInfo a{
        color:#fff;
    }
+
+   /* 内容主体区域 */
+iframe{
+    background:rgb(240, 239, 239);
+   }
