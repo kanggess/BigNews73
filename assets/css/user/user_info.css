@@ -4,6 +4,10 @@
 }
 /* 设置form的宽度 */
 form{
+    
     width:500px;
 
+}
+.layui-form-item{
+   margin-top:10px;
 }
