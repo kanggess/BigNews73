@@ -1,0 +1,13 @@
+/* 给面板设置一个外边距 */
+.layui-card{
+    margin:16px;
+}
+/* 设置form的宽度 */
+form{
+    
+    width:500px;
+
+}
+.layui-form-item{
+   margin-top:10px;
+}
