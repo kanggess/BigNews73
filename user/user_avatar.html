@@ -38,13 +38,16 @@
       </div>
 
       <!-- 第二行的按钮区域 -->
-      <div class="row2">
-        <button type="button" class="layui-btn">上传</button>
-        <button type="button" class="layui-btn layui-btn-danger">确定</button>
+      <div class="row2 avatar-bottom">
+        <input type="file" id="avatar" style="display:none;">
+        <button type="button" class="layui-btn btn-upload">上传</button>
+        <button type="button" class="layui-btn layui-btn-danger btn-sure">确定</button>
       </div>
     </div>
   </div>
   <script src="../assets/lib/jquery.js"></script>
+      <!-- 引入layui的js文件 -->
+      <script src="../assets/lib/layui/layui.all.js"></script>
   <script src="../assets/lib/cropper/Cropper.js"></script>
   <script src="../assets/lib/cropper/jquery-cropper.js"></script>
   <script src="../assets/js/utils.js"></script>
