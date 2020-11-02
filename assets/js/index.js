@@ -32,9 +32,10 @@ $(function () {
                         //显示对应的头像
                         $('.userInfo .text-avatar,.layui-header .text-avatar').hide().next().
                             show().attr('src', res.data.user_pic);
-                    }
+                            
+                
+            }}            
                 }
-            }
         })
 
     }
